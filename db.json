@@ -1,0 +1,85 @@
+{
+    "news": [
+      {
+        "id": 1,
+        "title": "Thông báo: Bảo trì hệ thống cấp nước",
+        "content": "Hệ thống cấp nước sẽ được bảo trì định kỳ vào ngày 25/03/2024 từ 00:00 đến 06:00. Mong quý khách hàng thông cảm. Trong thời gian bảo trì, có thể xảy ra tình trạng mất nước hoặc nước yếu ở một số khu vực. Chúng tôi sẽ cố gắng hoàn thành công việc sớm nhất có thể.",
+        "createDate": "2024-03-20",
+        "createBy": "admin",
+        "isActive": true
+      },
+      {
+        "id": 2,
+        "title": "Khuyến mãi đặc biệt tháng 4",
+        "content": "Nhận ngay ưu đãi giảm 15% khi thanh toán hóa đơn nước qua ứng dụng MoMo trong tháng 4. Chương trình áp dụng cho tất cả khách hàng thanh toán hóa đơn nước qua MoMo từ ngày 01/04/2024 đến 30/04/2024.",
+        "createDate": "2024-03-25",
+        "createBy": "marketing",
+        "isActive": true
+      },
+      {
+        "id": 3,
+        "title": "Điều chỉnh giá nước sinh hoạt",
+        "content": "Giá nước sinh hoạt sẽ được điều chỉnh tăng 5% từ ngày 15/04/2024. Việc điều chỉnh giá nước nhằm đảm bảo chi phí vận hành và bảo trì hệ thống cấp nước.",
+        "createDate": "2024-04-01",
+        "createBy": "admin",
+        "isActive": true
+      },
+      {
+        "id": 4,
+        "title": "Hướng dẫn sử dụng nước tiết kiệm",
+        "content": "Để tiết kiệm nước và bảo vệ môi trường, hãy thực hiện các biện pháp sau: kiểm tra và sửa chữa rò rỉ nước, tắt vòi nước khi không sử dụng, sử dụng vòi sen tiết kiệm nước, tái sử dụng nước khi có thể.",
+        "createDate": "2024-04-05",
+        "createBy": "marketing",
+        "isActive": true
+      },
+      {
+        "id": 5,
+        "title": "Thông báo: Thay đổi phương thức thanh toán",
+        "content": "Từ ngày 01/05/2024, chúng tôi sẽ ngừng hỗ trợ thanh toán hóa đơn nước qua chuyển khoản ngân hàng. Quý khách vui lòng thanh toán qua các phương thức khác như MoMo, ZaloPay, hoặc thanh toán trực tiếp tại các điểm thu.",
+        "createDate": "2024-04-10",
+        "createBy": "admin",
+        "isActive": true
+      },
+      {
+        "id": 6,
+        "title": "Chương trình tri ân khách hàng",
+        "content": "Nhân dịp kỷ niệm thành lập công ty, chúng tôi xin gửi tặng quý khách hàng chương trình ưu đãi đặc biệt. Chi tiết chương trình sẽ được thông báo trong thời gian sớm nhất.",
+        "createDate": "2024-04-15",
+        "createBy": "marketing",
+        "isActive": true
+      },
+      {
+        "id": 7,
+        "title": "Cảnh báo: Tình trạng thiếu nước",
+        "content": "Do ảnh hưởng của thời tiết khô hạn, mực nước tại các hồ chứa đang xuống thấp. Chúng tôi khuyến cáo quý khách hàng sử dụng nước tiết kiệm trong thời gian này.",
+        "createDate": "2024-04-20",
+        "createBy": "admin",
+        "isActive": true
+      },
+      {
+        "id": 8,
+        "title": "Tuyển dụng nhân viên kỹ thuật",
+        "content": "Chúng tôi đang tuyển dụng nhân viên kỹ thuật để bảo trì hệ thống cấp nước. Yêu cầu: tốt nghiệp chuyên ngành liên quan, có kinh nghiệm làm việc. Chi tiết liên hệ: 0123456789.",
+        "createDate": "2024-04-25",
+        "createBy": "hr",
+        "isActive": true
+      },
+      {
+        "id": 9,
+        "title": "Hướng dẫn đăng ký tài khoản online",
+        "content": "Để đăng ký tài khoản online, quý khách vui lòng truy cập website của chúng tôi và làm theo hướng dẫn. Việc đăng ký tài khoản giúp quý khách dễ dàng quản lý hóa đơn và thanh toán trực tuyến.",
+        "createDate": "2024-04-30",
+        "createBy": "marketing",
+        "isActive": true
+      },
+      {
+        "id": 10,
+        "title": "Thông báo: Nâng cấp hệ thống",
+        "content": "Hệ thống sẽ được nâng cấp vào ngày 10/05/2024 từ 00:00 đến 04:00. Trong thời gian nâng cấp, quý khách có thể không truy cập được website. Mong quý khách thông cảm.",
+        "createDate": "2024-05-05",
+        "createBy": "admin",
+        "isActive": true
+      }
+    ]
+  }
+  
