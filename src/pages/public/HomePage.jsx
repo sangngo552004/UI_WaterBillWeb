@@ -5,10 +5,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { truncateContent } from '../utils/helpers';
-import { WaterTips } from '../features/Home/WaterTips';
-import Support from '../features/Home/Support';
-import Intro from '../features/Home/Intro';
+import { truncateContent } from '../../utils/helpers';
+import { WaterTips } from '../../features/Home/WaterTips';
+import Support from '../../features/Home/Support';
+import Intro from '../../features/Home/Intro';
 
 
 

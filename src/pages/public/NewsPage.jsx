@@ -1,7 +1,7 @@
 import React from 'react';
-import NewsList from '../features/News/NewsList';
+import NewsList from '../../features/News/NewsList';
 import { Routes, Route } from 'react-router-dom';
-import NewsDetail from '../features/News/NewsDetail';
+import NewsDetail from '../../features/News/NewsDetail';
 
 const NewsPage = () => {
     return (
