@@ -1,3 +1,11 @@
+/* Trong file index.css hoặc globals.css */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+.active-link {
+  border-bottom: 2px solid #2563eb; /* Màu xanh đậm, bạn có thể thay đổi */
+  padding-bottom: 2px; /* Để gạch ngang không dính sát vào chữ */
+}
 
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;

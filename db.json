@@ -80,6 +80,142 @@
         "createBy": "admin",
         "isActive": true
       }
-    ]
-  }
+    ],
+    
+      "bills": [
+        {
+          "apartmentCode": "A101",
+          "householdName": "Nguyễn Văn A",
+          "paymentPeriod": "Tháng 11/2023",
+          "oldIndex": 100,
+          "newIndex": 150,
+          "totalConsumption": 50,
+          "totalAmount": 250000,
+          "paymentStatus": "Chưa thanh toán",
+          "paymentDate": null
+        },
+        {
+          "apartmentCode": "B202",
+          "householdName": "Trần Thị B",
+          "paymentPeriod": "Tháng 11/2023",
+          "oldIndex": 200,
+          "newIndex": 280,
+          "totalConsumption": 80,
+          "totalAmount": 400000,
+          "paymentStatus": "Đã thanh toán",
+          "paymentDate": "2023-11-25"
+        },
+        {
+          "apartmentCode": "C303",
+          "householdName": "Lê Văn C",
+          "paymentPeriod": "Tháng 10/2023",
+          "oldIndex": 300,
+          "newIndex": 360,
+          "totalConsumption": 60,
+          "totalAmount": 300000,
+          "paymentStatus": "Chưa thanh toán",
+          "paymentDate": null
+        },
+        {
+          "apartmentCode": "D404",
+          "householdName": "Phạm Thị D",
+          "paymentPeriod": "Tháng 12/2023",
+          "oldIndex": 400,
+          "newIndex": 440,
+          "totalConsumption": 40,
+          "totalAmount": 200000,
+          "paymentStatus": "Đã thanh toán",
+          "paymentDate": "2023-12-15"
+        },
+        {
+          "apartmentCode": "E505",
+          "householdName": "Hoàng Văn E",
+          "paymentPeriod": "Tháng 12/2023",
+          "oldIndex": 500,
+          "newIndex": 570,
+          "totalConsumption": 70,
+          "totalAmount": 350000,
+          "paymentStatus": "Chưa thanh toán",
+          "paymentDate": null
+        }
+      ],
+      
+      "invoices": [
+        {
+          "InvoiceID": 1,
+          "gracePeriod": 7,
+          "PaymentDate": "2023-11-15T10:00:00",
+          "TotalAmount": 150000.00,
+          "Status": "paid",
+          "CreatedBy": 101,
+          "PaidBy": 201,
+          "FacilityID": 301,
+          "CreationDate": "2023-11-01",
+          "PenaltyFee": 0.00
+        },
+        {
+          "InvoiceID": 2,
+          "gracePeriod": 7,
+          "PaymentDate": null,
+          "TotalAmount": 200000.00,
+          "Status": "unpaid",
+          "CreatedBy": 102,
+          "PaidBy": null,
+          "FacilityID": 302,
+          "CreationDate": "2023-11-10",
+          "PenaltyFee": 0.00
+        },
+        {
+          "InvoiceID": 3,
+          "gracePeriod": 7,
+          "PaymentDate": null,
+          "TotalAmount": 180000.00,
+          "Status": "unpaid",
+          "CreatedBy": 101,
+          "PaidBy": null,
+          "FacilityID": 303,
+          "CreationDate": "2023-10-20",
+          "PenaltyFee": 10000.00
+        },
+        {
+          "InvoiceID": 4,
+          "gracePeriod": 7,
+          "PaymentDate": null,
+          "TotalAmount": 250000.00,
+          "Status": "cancelled",
+          "CreatedBy": 103,
+          "PaidBy": null,
+          "FacilityID": 304,
+          "CreationDate": "2023-10-01",
+          "PenaltyFee": 20000.00
+        },
+        {
+          "InvoiceID": 5,
+          "gracePeriod": 7,
+          "PaymentDate": "2023-12-20T10:00:00",
+          "TotalAmount": 120000.00,
+          "Status": "paid",
+          "CreatedBy": 101,
+          "PaidBy": 202,
+          "FacilityID": 305,
+          "CreationDate": "2023-12-10",
+          "PenaltyFee": 0.00
+        },
+        {
+          "InvoiceID": 6,
+          "gracePeriod": 7,
+          "PaymentDate": null,
+          "TotalAmount": 300000.00,
+          "Status": "cancelled",
+          "CreatedBy": 102,
+          "PaidBy": null,
+          "FacilityID": 306,
+          "CreationDate": "2023-09-15",
+          "PenaltyFee": 20000.00
+        }
+      ]
+    }
+    
+    
+
   

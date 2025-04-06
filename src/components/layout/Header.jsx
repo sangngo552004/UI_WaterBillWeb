@@ -1,16 +1,18 @@
 // src/components/Header.jsx
-import React from 'react';
+import React  from 'react';
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate, useLocation} from "react-router-dom";
 import { Droplet } from 'lucide-react'; // Import icon Droplet
 
 export default function Header() {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
   };
+  
+  
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
@@ -25,36 +27,51 @@ export default function Header() {
 
         {/* Navigation Links */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link 
-            to="/" 
-            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200"
+        <Link
+              to="/"
+              className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
+                isActive("/") ? "text-blue-700 font-bold active-link" : ""
+              }`}
           >
             Trang chủ
           </Link>
           <Link 
             to="/pricing" 
-            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200"
+            className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
+              isActive("/pricing") ? "text-blue-700 font-bold active-link" : ""
+            }`}
           >
             Bảng giá
           </Link>
           <Link 
-            to="/" 
-            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200"
-            onClick={scrollToContact}
+            to="/" state={{ scrollTo: 'contact' }}
+            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 "
           >
-            Liên hệ
+            Hỗ trợ
           </Link>
           <Link 
-            to="/news" 
-            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200"
+            to="/news"
+            className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
+              isActive("/news") ? "text-blue-700 font-bold active-link" : ""
+            }`}
           >
             Tin tức
           </Link>
           <Link 
             to="/lookup" 
-            className="text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200"
+            className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
+              isActive("/lookup") ? "text-blue-700 font-bold active-link" : ""
+            }`}
           >
             Tra cứu
+          </Link>
+          <Link 
+            to="/register" 
+            className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
+              isActive("/register") ? "text-blue-700 font-bold active-link" : ""
+            }`}
+          >
+            Đăng ký dịch vụ
           </Link>
         </nav>
 

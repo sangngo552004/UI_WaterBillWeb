@@ -3,7 +3,7 @@
 
 // src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { truncateContent } from '../utils/helpers';
 import { WaterTips } from '../features/Home/WaterTips';
@@ -14,13 +14,14 @@ import Intro from '../features/Home/Intro';
 
 const HomePage = () => {
   const [news, setNews] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
         const response = await fetch('http://localhost:3001/news');
         const data = await response.json();
-        console.log(data);
+        
         data.sort((a, b) => new Date(b.createDate) - new Date(a.createDate));
         setNews(data);
       } catch (error) {
@@ -30,6 +31,19 @@ const HomePage = () => {
 
     fetchNews();
   }, []);
+
+  useEffect(() => {
+    console.log('location:', location);
+    console.log('location.state:', location.state);
+    if (location.state?.scrollTo === 'contact') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+     
+      window.history.replaceState({}, document.title, '/');
+    }
+  }, [location]);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-10">
