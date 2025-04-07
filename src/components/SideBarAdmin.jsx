@@ -1,6 +1,8 @@
 import { React } from "react";
 import {Link} from "react-router-dom";
 import {
+  Newspaper,
+  ClipboardList,
   BarChart3,
   FileText,
   Home,
@@ -92,6 +94,20 @@ const SideBarAdmin = () => {
           >
             <FileQuestion className="h-5 w-5" />
             <span>Yêu cầu hỗ trợ</span>
+          </Link>
+          <Link
+            to="/admin/tin-tuc"
+            className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
+          >
+            <Newspaper className="h-5 w-5" />
+            <span>Tin tức</span>
+          </Link>
+          <Link
+            to="/admin/dang-ky-dich-vu"
+            className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
+          >
+            <ClipboardList className="h-5 w-5" />
+            <span>Đăng ký dịch vụ</span>
           </Link>
           <Link
             to="/admin/thong-ke"

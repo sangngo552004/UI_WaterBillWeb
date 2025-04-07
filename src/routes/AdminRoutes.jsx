@@ -10,6 +10,9 @@ import AdminWaterPricePage from '../pages/admin/AdminWaterPricePage';
 import AdminWaterMeterPage from '../pages/admin/AdminWaterMeterPage';
 import AdminWaterMeterReadingPage from '../pages/admin/AdminWaterMeterReadingPage';
 import AdminSettingPage from '../pages/admin/AdminSettingPage';
+import AdminServiceRegistrationPage from '../pages/admin/AdminServiceRegistrationPage';
+import AdminAccountPage from '../pages/admin/AdminAccountPage';
+import AdminNewsManagementPage from '../pages/admin/AdminNewsManagementPage';
 
 
 
@@ -26,6 +29,9 @@ const AdminRoutes = () => (
         <Route path="nhan-vien" element={<AdminStaffManagementPage />} />
         <Route path="thong-ke" element={<AdminStatisticsPage />} />
         <Route path="yeu-cau" element={< AdminSupportPage/>} />
+        <Route path="dang-ky-dich-vu" element = {< AdminServiceRegistrationPage />} />
+        <Route path="tai-khoan" element = {< AdminAccountPage />} />
+        <Route path="tin-tuc" element = {< AdminNewsManagementPage />} />
         <Route path="" element={<AdminDashboardPage />} />
     </Route>
   </Routes>

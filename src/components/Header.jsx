@@ -85,7 +85,7 @@ export default function Header() {
               Đăng nhập
             </Button>
           </Link>
-          <Link to="/register">
+          <Link to="/sign-up">
             <Button 
               className="text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
             >

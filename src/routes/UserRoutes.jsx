@@ -7,6 +7,9 @@ import UserSupportPage from '../pages/user/UserSupportPage';
 import UserNotificationsPage from '../pages/user/UserNotificationsPage';
 import UserHouseholdPage from '../pages/user/UserHouseholdPage';
 import UserHouseholdDetailPage from '../pages/user/UserHouseholdDetailPage';
+import UserAccountPage from '../pages/user/UserAccountPage';
+
+
 
 const UserRoutes = () => (
   <Routes>
@@ -22,6 +25,7 @@ const UserRoutes = () => (
             <Route path=":id" element={<UserHouseholdDetailPage />} />
         </Route>
         <Route path="" element={<UserDashboardPage />} />
+        <Route path="tai-khoan" element={<UserAccountPage />} />
     </Route>
   </Routes>
 );
