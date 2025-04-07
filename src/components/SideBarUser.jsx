@@ -10,28 +10,28 @@ const SideBardUser = ( )  => {
     <aside className="w-64 border-r hidden md:block">
               <nav className="p-4 space-y-2">
                 <Link
-                  href="/user"
+                  to="/user"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
                 >
                   <Home className="h-5 w-5" />
                   <span>Trang chủ</span>
                 </Link>
                 <Link
-                  href="/user/ho-gia-dinh"
+                  to="/user/ho-gia-dinh"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
                 >
                   <Users className="h-5 w-5" />
                   <span>Hộ gia đình</span>
                 </Link>
                 <Link
-                  href="/user/tai-khoan"
+                  to="/user/tai-khoan"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
                 >
                   <User className="h-5 w-5" />
                   <span>Tài khoản</span>
                 </Link>
                 <Link
-                  href="/user/cai-dat"
+                  to="/user/cai-dat"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
                 >
                   <Settings className="h-5 w-5" />

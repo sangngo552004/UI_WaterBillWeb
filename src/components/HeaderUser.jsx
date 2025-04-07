@@ -28,16 +28,16 @@ export default function HeaderUser() {
             <span className="text-xl font-bold text-blue-500">WaterBill</span>
           </div>
           <nav className="hidden md:flex space-x-6 text-sm">
-            <Link href="/user" className="text-gray-600 hover:text-blue-500">
+            <Link to="/user" className="text-gray-600 hover:text-blue-500">
               Trang chủ
             </Link>
-            <Link href="/user/ho-gia-dinh" className="text-gray-600 hover:text-blue-500">
+            <Link to="/user/ho-gia-dinh" className="text-gray-600 hover:text-blue-500">
               Hộ gia đình
             </Link>
-            <Link href="/user/hoa-don" className="text-gray-600 hover:text-blue-500">
+            <Link to="/user/hoa-don" className="text-gray-600 hover:text-blue-500">
               Hóa đơn
             </Link>
-            <Link href="/user/ho-tro" className="text-gray-600 hover:text-blue-500">
+            <Link to="/user/ho-tro" className="text-gray-600 hover:text-blue-500">
               Hỗ trợ
             </Link>
           </nav>

@@ -1,141 +1,345 @@
-import React, { useState } from 'react';
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Separator } from "@/components/ui/separator";
-import { toast } from "sonner";
+import {Link} from "react-router-dom";
+import { Search, ArrowRight, FileText, CreditCard, Building, AlertCircle } from "lucide-react"
 
-const LookupPage = () => {
-  const [apartmentCode, setApartmentCode] = useState('');
-  const [billData, setBillData] = useState(null);
-  const [loading, setLoading] = useState(false);
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Separator } from "@/components/ui/separator"
 
-  const handleLookup = async () => {
-    setLoading(true);
-    setBillData(null); // Reset previous bill data
-    try {
-      // Simulate fetching data from an API
-      const response = await fetch(`http://localhost:3001/invoices?apartmentCode=${apartmentCode}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      if (data.length > 0) {
-        setBillData(data[0]); // Assuming the API returns an array, and we take the first result
-      } else {
-        toast.error("Không tìm thấy hóa đơn cho mã căn hộ này.");
-      }
-    } catch (error) {
-      console.error('Error fetching bill data:', error);
-      toast.error("Có lỗi xảy ra khi tra cứu hóa đơn.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
+const  LookupPage = () => {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-        <div className="space-y-2">
-          <Badge className="px-3 py-1 text-sm text-blue-600" variant="secondary">
-            Tra cứu
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-600">Tra cứu hóa đơn tiền nước</h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-            Nhập mã căn hộ để kiểm tra trạng thái thanh toán hóa đơn tiền nước.
-          </p>
-        </div>
-      </div>
+    <div className="min-h-screen flex flex-col">
+      
 
-      <div className="max-w-md mx-auto space-y-6">
-        <div className="space-y-2">
-          <label htmlFor="apartmentCode" className="block text-sm font-medium text-gray-700">
-            Mã căn hộ
-          </label>
-          <div className="flex space-x-2">
-            <Input
-              type="text"
-              id="apartmentCode"
-              value={apartmentCode}
-              onChange={(e) => setApartmentCode(e.target.value)}
-              placeholder="Nhập mã căn hộ"
-              className="flex-grow"
-            />
-            <Button onClick={handleLookup} disabled={loading} className="bg-blue-600 hover:bg-blue-800">
-              {loading ? "Đang tra cứu..." : "Tra cứu"}
-            </Button>
+      <main className="flex-1 container mx-auto px-4 py-8">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Tra cứu hóa đơn</h1>
+            <p className="text-gray-600">Tra cứu thông tin hóa đơn tiền nước và thanh toán trực tuyến</p>
           </div>
-        </div>
 
-        {billData && (
-          <Card>
-            <CardHeader>
-              <CardTitle>Thông tin hóa đơn</CardTitle>
-              <CardDescription>Chi tiết hóa đơn cho mã căn hộ: {billData.apartmentCode}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <p className="text-gray-500">Mã căn hộ:</p>
-                  <p className="font-medium">{billData.apartmentCode}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Tên chủ hộ:</p>
-                  <p className="font-medium">{billData.householdName}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Kỳ thanh toán:</p>
-                  <p className="font-medium">{billData.paymentPeriod}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Chỉ số cũ:</p>
-                  <p className="font-medium">{billData.oldIndex}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Chỉ số mới:</p>
-                  <p className="font-medium">{billData.newIndex}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Tổng số nước tiêu thụ:</p>
-                  <p className="font-medium">{billData.totalConsumption}</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Tổng tiền:</p>
-                  <p className="font-medium">{billData.totalAmount} ₫</p>
-                </div>
-                <div>
-                  <p className="text-gray-500">Trạng thái thanh toán:</p>
-                  <p className={`font-medium ${billData.paymentStatus === 'Đã thanh toán' ? 'text-green-600' : 'text-red-600'}`}>
-                    {billData.paymentStatus}
-                  </p>
-                </div>
-                {billData.paymentDate && (
-                  <div>
-                    <p className="text-gray-500">Ngày thanh toán:</p>
-                    <p className="font-medium">{billData.paymentDate}</p>
+          <Tabs defaultValue="bill" className="w-full">
+            <TabsList className="grid grid-cols-2 mb-8">
+              <TabsTrigger value="bill">Tra cứu theo mã hóa đơn</TabsTrigger>
+              <TabsTrigger value="customer">Tra cứu theo mã khách hàng</TabsTrigger>
+            </TabsList>
+            <TabsContent value="bill">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Tra cứu theo mã hóa đơn</CardTitle>
+                  <CardDescription>Nhập mã hóa đơn để tra cứu thông tin và thanh toán</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex space-x-2">
+                    <div className="relative flex-1">
+                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                      <Input type="text" placeholder="Nhập mã hóa đơn (VD: HD12345)" className="pl-8" />
+                    </div>
+                    <Button type="submit">
+                      <Search className="mr-2 h-4 w-4" />
+                      Tra cứu
+                    </Button>
                   </div>
-                )}
+                </CardContent>
+              </Card>
+
+              {/* Kết quả tra cứu - Hóa đơn chưa thanh toán */}
+              <div className="mt-8">
+                <Card className="border-yellow-200">
+                  <CardHeader className="bg-yellow-50 border-b border-yellow-100">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <CardTitle className="flex items-center">
+                          <FileText className="mr-2 h-5 w-5 text-yellow-600" />
+                          Hóa đơn #HD12345
+                        </CardTitle>
+                        <CardDescription>Kỳ hóa đơn: Tháng 4/2025</CardDescription>
+                      </div>
+                      <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-yellow-50 text-yellow-600 border-yellow-300">
+                        Chưa thanh toán
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Khách hàng</p>
+                        <p>Nguyễn Văn A</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Mã khách hàng</p>
+                        <p>KH001</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Địa chỉ</p>
+                        <p>123 Đường ABC, Quận 1, TP.HCM</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Mã đồng hồ nước</p>
+                        <p>DH12345</p>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+
+                    <div className="space-y-2 mb-4">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Chỉ số cũ</span>
+                        <span>1220</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Chỉ số mới</span>
+                        <span>1250</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Lượng nước tiêu thụ</span>
+                        <span>30 m³</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Tiền nước</span>
+                        <span>240,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Phí bảo vệ môi trường</span>
+                        <span>24,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Phí dịch vụ</span>
+                        <span>20,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Thuế VAT (10%)</span>
+                        <span>36,000 VNĐ</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex justify-between font-bold">
+                        <span>Tổng cộng</span>
+                        <span>320,000 VNĐ</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-yellow-50 p-4 rounded-md border border-yellow-200 flex items-start space-x-3 mb-4">
+                      <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
+                      <div>
+                        <h3 className="font-medium text-yellow-800">Hóa đơn chưa thanh toán</h3>
+                        <p className="text-sm text-yellow-700">
+                          Vui lòng thanh toán trước ngày 15/04/2025 để tránh bị phạt trễ hạn.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <h3 className="font-medium">Phương thức thanh toán</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <Card className="border-blue-100 hover:border-blue-300 transition-colors cursor-pointer">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-base flex items-center">
+                              <CreditCard className="mr-2 h-4 w-4 text-blue-500" />
+                              Thanh toán trực tuyến
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-muted-foreground">
+                              Thanh toán nhanh chóng qua thẻ ATM, Visa, MasterCard hoặc ví điện tử.
+                            </p>
+                          </CardContent>
+                          <CardFooter>
+                            <Button className="w-full">
+                              Thanh toán ngay
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </CardFooter>
+                        </Card>
+
+                        <Card className="border-gray-200 hover:border-gray-300 transition-colors cursor-pointer">
+                          <CardHeader className="pb-2">
+                            <CardTitle className="text-base flex items-center">
+                              <Building className="mr-2 h-4 w-4 text-gray-500" />
+                              Thanh toán tại ngân hàng
+                            </CardTitle>
+                          </CardHeader>
+                          <CardContent>
+                            <p className="text-sm text-muted-foreground">
+                              Chuyển khoản qua ngân hàng hoặc thanh toán tại quầy giao dịch.
+                            </p>
+                          </CardContent>
+                          <CardFooter>
+                            <Button variant="outline" className="w-full">
+                              Xem hướng dẫn
+                              <ArrowRight className="ml-2 h-4 w-4" />
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
-            </CardContent>
-            <CardFooter className="flex justify-end">
-              {/* <Button variant="outline">In hóa đơn</Button> */}
-            </CardFooter>
-          </Card>
-        )}
-      </div>
-      <div className="mt-12 text-center">
-        <h2 className="text-2xl font-bold">Cần hỗ trợ thêm?</h2>
-        <p className="mt-2 text-gray-500">
-          Liên hệ với chúng tôi nếu bạn gặp bất kỳ vấn đề nào.
-        </p>
-        <div className="mt-4 space-x-4">
-          <p className="text-gray-500">Hotline: 0123 456 789</p>
-          <p className="text-gray-500">Email: support@waterbill.com</p>
+
+              {/* Kết quả tra cứu - Hóa đơn đã thanh toán (ẩn mặc định, hiển thị khi tra cứu) */}
+              {/* <div className="mt-8">
+                <Card className="border-green-200">
+                  <CardHeader className="bg-green-50 border-b border-green-100">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <CardTitle className="flex items-center">
+                          <FileText className="mr-2 h-5 w-5 text-green-600" />
+                          Hóa đơn #HD12343
+                        </CardTitle>
+                        <CardDescription>Kỳ hóa đơn: Tháng 3/2025</CardDescription>
+                      </div>
+                      <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold bg-green-50 text-green-600 border-green-300">
+                        Đã thanh toán
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="pt-6">
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Khách hàng</p>
+                        <p>Nguyễn Văn A</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Mã khách hàng</p>
+                        <p>KH001</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Địa chỉ</p>
+                        <p>123 Đường ABC, Quận 1, TP.HCM</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Mã đồng hồ nước</p>
+                        <p>DH12345</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Ngày thanh toán</p>
+                        <p>10/03/2025</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-muted-foreground">Phương thức thanh toán</p>
+                        <p>Thanh toán trực tuyến</p>
+                      </div>
+                    </div>
+
+                    <Separator className="my-4" />
+
+                    <div className="space-y-2 mb-4">
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Chỉ số cũ</span>
+                        <span>1190</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Chỉ số mới</span>
+                        <span>1220</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Lượng nước tiêu thụ</span>
+                        <span>30 m³</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Tiền nước</span>
+                        <span>240,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Phí bảo vệ môi trường</span>
+                        <span>24,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Phí dịch vụ</span>
+                        <span>20,000 VNĐ</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-muted-foreground">Thuế VAT (10%)</span>
+                        <span>36,000 VNĐ</span>
+                      </div>
+                      <Separator className="my-2" />
+                      <div className="flex justify-between font-bold">
+                        <span>Tổng cộng</span>
+                        <span>320,000 VNĐ</span>
+                      </div>
+                    </div>
+
+                    <div className="bg-green-50 p-4 rounded-md border border-green-200 flex items-start space-x-3">
+                      <div className="rounded-full bg-green-100 p-1">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="text-green-600"
+                        >
+                          <path d="M20 6 9 17l-5-5" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="font-medium text-green-800">Hóa đơn đã thanh toán</h3>
+                        <p className="text-sm text-green-700">
+                          Cảm ơn bạn đã thanh toán hóa đơn đúng hạn.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button variant="outline" className="w-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="mr-2"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" x2="12" y1="15" y2="3" />
+                      </svg>
+                      Tải hóa đơn PDF
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </div> */}
+            </TabsContent>
+            <TabsContent value="customer">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Tra cứu theo mã khách hàng</CardTitle>
+                  <CardDescription>Nhập mã khách hàng để tra cứu thông tin hóa đơn</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex space-x-2">
+                    <div className="relative flex-1">
+                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                      <Input type="text" placeholder="Nhập mã khách hàng (VD: KH001)" className="pl-8" />
+                    </div>
+                    <Button type="submit">
+                      <Search className="mr-2 h-4 w-4" />
+                      Tra cứu
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Kết quả tra cứu theo mã khách hàng sẽ hiển thị danh sách hóa đơn */}
+            </TabsContent>
+          </Tabs>
         </div>
-      </div>
+      </main>
+
+
     </div>
-  );
-};
+  )
+}
 
 export default LookupPage;
