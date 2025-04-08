@@ -1,37 +1,36 @@
 
-
 import  React from "react";
-
-import { useState } from "react"
+import { useState , useRef} from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card } from "@/components/ui/card"
-import { Send } from "lucide-react"
+import { Send } from "lucide-react";
+import { toast } from 'sonner';
 
 
-export function ContactForm() {
-  // const { toast } = useToastStyles()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+const  SupportForm = () => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null); // Tạo ref để lưu tham chiếu tới form
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Giả lập gửi form
-    await new Promise((resolve) => setTimeout(resolve, 3))
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
-    // toast({
-    //   title: "Gửi thành công!",
-    //   description: "Chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.",
-    // })
+    toast.success('Gửi thành công!');
 
-    // Reset form
-    e.currentTarget.reset()
-    setIsSubmitting(false)
-  }
+    // Reset form bằng ref
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+    setIsSubmitting(false);
+    console.log('Form submitted');
+  };
 
   return (
     <Card className="p-6">
@@ -74,3 +73,4 @@ export function ContactForm() {
   )
 }
 
+export default SupportForm;

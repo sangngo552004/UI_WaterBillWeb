@@ -27,7 +27,9 @@ export function WaterTips() {
   ]
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div>
+      <h1 className="text-3xl font-bold text-blue-600 mb-2 text-center">Các mẹo sử dụng nước hiệu quả</h1>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
       {tips.map((tip, index) => (
         <Card key={index} className="border-sky-100 hover:shadow-md transition-shadow">
           <CardHeader className="flex flex-row items-center gap-4 pb-2">
@@ -40,6 +42,8 @@ export function WaterTips() {
         </Card>
       ))}
     </div>
+    </div>
+    
   )
 }
 

@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 
 import { toast } from "sonner";
+import SectionHeader from "../../components/common/SectionHeader";
 
 export default function RegisterPage() {
   const [step, setStep] = useState(1)
@@ -47,22 +48,11 @@ export default function RegisterPage() {
     // Normally would submit to server here
   }
 
-  const nextStep = () => setStep((prev) => prev + 1)
-  const prevStep = () => setStep((prev) => prev - 1)
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-        <div className="space-y-2">
-          <Badge className="px-3 py-1 text-sm text-blue-600" variant="secondary">
-            Đăng ký dịch vụ
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-600">Đăng ký dịch vụ nước sạch</h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-            Hoàn thành biểu mẫu dưới đây để đăng ký dịch vụ. Nhân viên của chúng tôi sẽ đến tận nhà để hỗ trợ bạn.
-          </p>
-        </div>
-      </div>
+      
+      <SectionHeader title = " Đăng ký dịch vụ" description = "Hoàn thành biểu mẫu dưới đây để đăng ký dịch vụ. Nhân viên của chúng tôi sẽ đến tận nhà để hỗ trợ bạn." />
 
       <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
         <div>
@@ -185,15 +175,9 @@ export default function RegisterPage() {
           <Card>
             <CardHeader>
               <CardTitle>Đăng ký dịch vụ</CardTitle>
-              <CardDescription>
-                {step === 1 && "Bước 1: Thông tin cá nhân"}
-                {step === 2 && "Bước 2: Địa chỉ lắp đặt"}
-                {step === 3 && "Bước 3: Lịch hẹn và xác nhận"}
-              </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit}>
-                {step === 1 && (
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <Label htmlFor="fullName">Họ và tên</Label>
@@ -255,203 +239,12 @@ export default function RegisterPage() {
                       </Tabs>
                     </div>
                   </div>
-                )}
-
-                {step === 2 && (
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Địa chỉ chi tiết</Label>
-                      <div className="relative">
-                        <Home className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input
-                          id="address"
-                          name="address"
-                          value={formData.address}
-                          onChange={handleChange}
-                          placeholder="Số nhà, tên đường"
-                          className="pl-10"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="district">Quận/Huyện</Label>
-                      <Select
-                        onValueChange={(value) => handleSelectChange("district", value)}
-                        defaultValue={formData.district}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Chọn Quận/Huyện" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="quan1">Quận 1</SelectItem>
-                          <SelectItem value="quan2">Quận 2</SelectItem>
-                          <SelectItem value="quan3">Quận 3</SelectItem>
-                          <SelectItem value="quan4">Quận 4</SelectItem>
-                          <SelectItem value="quan5">Quận 5</SelectItem>
-                          <SelectItem value="quan6">Quận 6</SelectItem>
-                          <SelectItem value="quan7">Quận 7</SelectItem>
-                          <SelectItem value="quan8">Quận 8</SelectItem>
-                          <SelectItem value="quan9">Quận 9</SelectItem>
-                          <SelectItem value="quan10">Quận 10</SelectItem>
-                          <SelectItem value="quan11">Quận 11</SelectItem>
-                          <SelectItem value="quan12">Quận 12</SelectItem>
-                          <SelectItem value="quanBinhThanh">Quận Bình Thạnh</SelectItem>
-                          <SelectItem value="quanTanBinh">Quận Tân Bình</SelectItem>
-                          <SelectItem value="quanTanPhu">Quận Tân Phú</SelectItem>
-                          <SelectItem value="quanPhuNhuan">Quận Phú Nhuận</SelectItem>
-                          <SelectItem value="quanGoVap">Quận Gò Vấp</SelectItem>
-                          <SelectItem value="quanBinhTan">Quận Bình Tân</SelectItem>
-                          <SelectItem value="tpThuDuc">TP Thủ Đức</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="ward">Phường/Xã</Label>
-                      <Select onValueChange={(value) => handleSelectChange("ward", value)} defaultValue={formData.ward}>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Chọn Phường/Xã" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="phuong1">Phường 1</SelectItem>
-                          <SelectItem value="phuong2">Phường 2</SelectItem>
-                          <SelectItem value="phuong3">Phường 3</SelectItem>
-                          <SelectItem value="phuong4">Phường 4</SelectItem>
-                          <SelectItem value="phuong5">Phường 5</SelectItem>
-                          <SelectItem value="phuong6">Phường 6</SelectItem>
-                          <SelectItem value="phuong7">Phường 7</SelectItem>
-                          <SelectItem value="phuong8">Phường 8</SelectItem>
-                          <SelectItem value="phuong9">Phường 9</SelectItem>
-                          <SelectItem value="phuong10">Phường 10</SelectItem>
-                          <SelectItem value="phuong11">Phường 11</SelectItem>
-                          <SelectItem value="phuong12">Phường 12</SelectItem>
-                          <SelectItem value="phuong13">Phường 13</SelectItem>
-                          <SelectItem value="phuong14">Phường 14</SelectItem>
-                          <SelectItem value="phuong15">Phường 15</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                )}
-
-                {step === 3 && (
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="appointmentDate">Ngày hẹn khảo sát</Label>
-                      <div className="relative">
-                        <Calendar className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                        <Input
-                          id="appointmentDate"
-                          name="appointmentDate"
-                          type="date"
-                          value={formData.appointmentDate}
-                          onChange={handleChange}
-                          className="pl-10"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="appointmentTime">Thời gian hẹn</Label>
-                      <Select
-                        onValueChange={(value) => handleSelectChange("appointmentTime", value)}
-                        defaultValue={formData.appointmentTime}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Chọn thời gian" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="8h-10h">8:00 - 10:00</SelectItem>
-                          <SelectItem value="10h-12h">10:00 - 12:00</SelectItem>
-                          <SelectItem value="13h-15h">13:00 - 15:00</SelectItem>
-                          <SelectItem value="15h-17h">15:00 - 17:00</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="additionalInfo">Thông tin bổ sung</Label>
-                      <Textarea
-                        id="additionalInfo"
-                        name="additionalInfo"
-                        value={formData.additionalInfo}
-                        onChange={handleChange}
-                        placeholder="Ghi chú thêm về nhu cầu sử dụng nước, vị trí lắp đặt, v.v."
-                        className="min-h-[100px]"
-                      />
-                    </div>
-
-                    <div className="rounded-lg border p-4 bg-cyan-50">
-                      <h3 className="font-medium text-blue-800 mb-2">Xác nhận thông tin</h3>
-                      <div className="space-y-2 text-sm">
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Họ và tên:</span>
-                          <span className="font-medium">{formData.fullName}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Số điện thoại:</span>
-                          <span className="font-medium">{formData.phone}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Email:</span>
-                          <span className="font-medium">{formData.email || "Không có"}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Loại dịch vụ:</span>
-                          <span className="font-medium">
-                            {formData.serviceType === "household" && "Hộ gia đình"}
-                            {formData.serviceType === "business" && "Doanh nghiệp"}
-                            {formData.serviceType === "government" && "Cơ quan nhà nước"}
-                          </span>
-                        </div>
-                        <Separator />
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Địa chỉ:</span>
-                          <span className="font-medium">{formData.address}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Quận/Huyện:</span>
-                          <span className="font-medium">
-                            {formData.district
-                              ? formData.district.replace("quan", "Quận ").replace("tp", "TP ")
-                              : "Chưa chọn"}
-                          </span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Phường/Xã:</span>
-                          <span className="font-medium">
-                            {formData.ward ? formData.ward.replace("phuong", "Phường ") : "Chưa chọn"}
-                          </span>
-                        </div>
-                        <Separator />
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Ngày hẹn:</span>
-                          <span className="font-medium">{formData.appointmentDate || "Chưa chọn"}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-gray-500">Thời gian:</span>
-                          <span className="font-medium">{formData.appointmentTime || "Chưa chọn"}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </form>
             </CardContent>
             <CardFooter className="flex justify-between border-t p-6">
-              {step > 1 && (
-                <Button variant="outline" onClick={prevStep}>
-                  Quay lại
-                </Button>
-              )}
-              {step < 3 ? (
-                <Button className="bg-blue-600 hover:bg-blue-800 ml-auto" onClick={nextStep}>
-                  Tiếp tục
-                </Button>
-              ) : (
                 <Button className="bg-blue-600 hover:bg-blue-800 ml-auto" onClick={handleSubmit}>
-                  <CheckCircle className="mr-2 h-4 w-4" /> Hoàn tất đăng ký
+                    <CheckCircle className="mr-2 h-4 w-4" /> Hoàn tất đăng ký
                 </Button>
-              )}
             </CardFooter>
           </Card>
 

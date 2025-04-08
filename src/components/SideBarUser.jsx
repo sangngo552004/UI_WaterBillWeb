@@ -1,5 +1,5 @@
 import { React } from "react"
-import {  Home, LogOut, Settings, User, Users } from "lucide-react"
+import {  Home, LogOut, User, Users, Newspaper } from "lucide-react"
 import { Link } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 
@@ -17,11 +17,11 @@ const SideBardUser = ( )  => {
                   <span>Trang chủ</span>
                 </Link>
                 <Link
-                  to="/user/ho-gia-dinh"
+                  to="/user/ho-tro"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
                 >
-                  <Users className="h-5 w-5" />
-                  <span>Hộ gia đình</span>
+                  <Newspaper className="h-5 w-5" />
+                  <span>Hỗ trợ</span>
                 </Link>
                 <Link
                   to="/user/tai-khoan"
@@ -29,13 +29,6 @@ const SideBardUser = ( )  => {
                 >
                   <User className="h-5 w-5" />
                   <span>Tài khoản</span>
-                </Link>
-                <Link
-                  to="/user/cai-dat"
-                  className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
-                >
-                  <Settings className="h-5 w-5" />
-                  <span>Cài đặt</span>
                 </Link>
                 <div className="pt-4 mt-4 border-t">
                   <Button variant="ghost" className="w-full justify-start text-red-500 hover:text-red-600 hover:bg-red-50">

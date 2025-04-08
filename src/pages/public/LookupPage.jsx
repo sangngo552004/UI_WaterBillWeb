@@ -5,24 +5,23 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Separator } from "@/components/ui/separator"
+import { Separator } from "@/components/ui/separator";
+import SectionHeader from "@/components/common/SectionHeader";
+
+
 
 const  LookupPage = () => {
+  const data = {
+    
+  }
   return (
-    <div className="min-h-screen flex flex-col">
-      
 
-      <main className="flex-1 container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Tra cứu hóa đơn</h1>
-            <p className="text-gray-600">Tra cứu thông tin hóa đơn tiền nước và thanh toán trực tuyến</p>
-          </div>
+          <SectionHeader title="Tra cứu" description = "" />
 
-          <Tabs defaultValue="bill" className="w-full">
-            <TabsList className="grid grid-cols-2 mb-8">
+          <Tabs defaultValue="bill" className="w-full ">
+            <TabsList className="grid grid-cols-1 w-max mx-auto mb-2">
               <TabsTrigger value="bill">Tra cứu theo mã hóa đơn</TabsTrigger>
-              <TabsTrigger value="customer">Tra cứu theo mã khách hàng</TabsTrigger>
             </TabsList>
             <TabsContent value="bill">
               <Card>
@@ -179,7 +178,7 @@ const  LookupPage = () => {
               </div>
 
               {/* Kết quả tra cứu - Hóa đơn đã thanh toán (ẩn mặc định, hiển thị khi tra cứu) */}
-              {/* <div className="mt-8">
+              <div className="mt-8">
                 <Card className="border-green-200">
                   <CardHeader className="bg-green-50 border-b border-green-100">
                     <div className="flex justify-between items-start">
@@ -309,36 +308,12 @@ const  LookupPage = () => {
                     </Button>
                   </CardFooter>
                 </Card>
-              </div> */}
-            </TabsContent>
-            <TabsContent value="customer">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Tra cứu theo mã khách hàng</CardTitle>
-                  <CardDescription>Nhập mã khách hàng để tra cứu thông tin hóa đơn</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex space-x-2">
-                    <div className="relative flex-1">
-                      <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-                      <Input type="text" placeholder="Nhập mã khách hàng (VD: KH001)" className="pl-8" />
-                    </div>
-                    <Button type="submit">
-                      <Search className="mr-2 h-4 w-4" />
-                      Tra cứu
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Kết quả tra cứu theo mã khách hàng sẽ hiển thị danh sách hóa đơn */}
+              </div>
             </TabsContent>
           </Tabs>
         </div>
-      </main>
 
 
-    </div>
   )
 }
 

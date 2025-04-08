@@ -1,8 +1,8 @@
 import React from 'react';
-import { ContactForm } from "@/components/common/SupportForm";
+import  SupportForm from "./ContactForm";
 import { HomeIcon, Phone, Mail, MapPin } from "lucide-react"
 
-export default function Support() {
+const Support = () => {
   return (
     <div className="container mx-auto px-4 py-8">
 
@@ -53,7 +53,7 @@ export default function Support() {
               Điền thông tin và câu hỏi của bạn vào biểu mẫu dưới đây, chúng tôi sẽ phản hồi trong thời gian sớm nhất.
             </p>
 
-            <ContactForm />
+            <SupportForm />
           </div>
         </div>
 
@@ -90,4 +90,6 @@ export default function Support() {
     </div>
   )
 }
+
+export default Support;
 

@@ -4,24 +4,17 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useNavigate } from "react-router-dom"
+import SectionHeader from "../../components/common/SectionHeader"
 
 export default function PricingPage() {
   const navigate = useNavigate();
 
   return (
     <div className="container mx-auto px-4 py-8" >
-      <div className="flex flex-col items-center justify-center space-y-4 text-center">
-        <div className="space-y-2">
-          <Badge className="px-3 py-1 text-sm text-blue-600" variant="secondary">
-            Bảng giá
-          </Badge>
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-600">Giá dịch vụ nước sạch</h1>
-          <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl">
-            Chúng tôi cung cấp các gói dịch vụ linh hoạt phù hợp với nhu cầu của bạn. Dưới đây là chi tiết bảng giá cho
-            từng loại khách hàng.
-          </p>
-        </div>
-      </div>
+      
+      <SectionHeader title="Bảng giá"  description="Chúng tôi cung cấp các gói dịch vụ linh hoạt phù hợp với nhu cầu của bạn. Dưới đây là chi tiết bảng giá cho
+            từng loại khách hàng." />
+            
       <div className="mt-8">
         <Tabs defaultValue="household" className="w-full">
           <TabsList className="grid w-full grid-cols-3">

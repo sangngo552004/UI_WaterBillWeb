@@ -1,7 +1,7 @@
 import React, {useState, useEffect}from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-const NewsDetail = () => {
+const NewsDetailPage = () => {
     const { id } = useParams();
     const [newsDetail, setNewsDetail] = useState(null);
 
@@ -26,4 +26,4 @@ const NewsDetail = () => {
     );
 };
 
-export default NewsDetail;
+export default NewsDetailPage;

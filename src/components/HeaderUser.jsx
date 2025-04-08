@@ -27,20 +27,7 @@ export default function HeaderUser() {
             </svg>
             <span className="text-xl font-bold text-blue-500">WaterBill</span>
           </div>
-          <nav className="hidden md:flex space-x-6 text-sm">
-            <Link to="/user" className="text-gray-600 hover:text-blue-500">
-              Trang chủ
-            </Link>
-            <Link to="/user/ho-gia-dinh" className="text-gray-600 hover:text-blue-500">
-              Hộ gia đình
-            </Link>
-            <Link to="/user/hoa-don" className="text-gray-600 hover:text-blue-500">
-              Hóa đơn
-            </Link>
-            <Link to="/user/ho-tro" className="text-gray-600 hover:text-blue-500">
-              Hỗ trợ
-            </Link>
-          </nav>
+        
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="relative">
               <Bell className="h-5 w-5" />
