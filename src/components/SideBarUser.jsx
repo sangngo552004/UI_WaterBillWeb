@@ -16,13 +16,7 @@ const SideBardUser = ( )  => {
                   <Home className="h-5 w-5" />
                   <span>Trang chủ</span>
                 </Link>
-                <Link
-                  to="/user/ho-tro"
-                  className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
-                >
-                  <Newspaper className="h-5 w-5" />
-                  <span>Hỗ trợ</span>
-                </Link>
+              
                 <Link
                   to="/user/tai-khoan"
                   className="flex items-center space-x-2 p-2 rounded-md hover:bg-blue-50 text-gray-700 hover:text-blue-600"
