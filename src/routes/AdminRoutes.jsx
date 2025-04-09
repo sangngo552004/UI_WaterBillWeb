@@ -13,12 +13,14 @@ import AdminSettingPage from '../pages/admin/AdminSettingPage';
 import AdminServiceRegistrationPage from '../pages/admin/AdminServiceRegistrationPage';
 import AdminAccountPage from '../pages/admin/AdminAccountPage';
 import AdminNewsManagementPage from '../pages/admin/AdminNewsManagementPage';
+import AdminLoginPage from '../pages/admin/AdminLoginPage';
 
 
 
 
 const AdminRoutes = () => (
   <Routes>
+    <Route path="dang-nhap" element={<AdminLoginPage />} />
     <Route  path = "/" element={<AdminLayout />}>
         <Route path="cai-dat" element={<AdminSettingPage />} />
         <Route path="chi-so-nuoc" element={<AdminWaterMeterReadingPage />} />

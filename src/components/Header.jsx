@@ -66,7 +66,7 @@ export default function Header() {
             Tra cứu
           </Link>
           <Link 
-            to="/dang-ly-dich-vu" 
+            to="/dang-ky-dich-vu" 
             className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
               isActive("/dang-ly-dich-vu") ? "text-blue-700 font-bold active-link" : ""
             }`}
