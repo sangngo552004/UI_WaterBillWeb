@@ -46,7 +46,7 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/thanh-toan" className="text-blue-100 hover:text-white">
+                  <Link href="/tra-cuu" className="text-blue-100 hover:text-white">
                     Thanh toán hóa đơn
                   </Link>
                 </li>

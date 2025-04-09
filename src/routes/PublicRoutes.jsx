@@ -9,20 +9,25 @@ import LookupPage from "../pages/public/LookupPage";
 import SignUpPage from "../pages/public/SignUpPage";
 import NewsListPage from "../pages/public/NewsListPage";
 import NewsDetailPage from "../pages/public/NewsDetailPage";
+import OnlinePaymentPage from "../pages/public/OnlinePaymentPage";
+import SupportPaymentPage from "../pages/public/SupportPaymentPage";
+
 
 const PublicRoutes = () => (
   <Routes>
     <Route  path = "/" element={<PublicLayout />}>
         <Route path="" element={<HomePage />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path ="sign-up" element = {<SignUpPage />} />
-        <Route path = "news">
+        <Route path="dang-nhap" element={<LoginPage />} />
+        <Route path ="dang-ky" element = {<SignUpPage />} />
+        <Route path = "tin-tuc">
             <Route path="" element={<NewsListPage  />} />
             <Route path=":id" element={<NewsDetailPage />} />
         </Route>
-        <Route path="pricing" element = {<PricingPage />} />
-        <Route path="register" element={<RegisterPage />} />
-        <Route path="lookup" element={<LookupPage />} />
+        <Route path="bang-gia" element = {<PricingPage />} />
+        <Route path="dang-ky-dich-vu" element={<RegisterPage />} />
+        <Route path="tra-cuu" element={<LookupPage />} />
+        <Route path="thanh-toan-truc-tuyen" element={<OnlinePaymentPage />} />
+        <Route path="huong-dan-thanh-toan" element={<SupportPaymentPage />} />
     </Route>
   </Routes>
 );

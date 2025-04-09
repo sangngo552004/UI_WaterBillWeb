@@ -36,9 +36,9 @@ export default function Header() {
             Trang chủ
           </Link>
           <Link 
-            to="/pricing" 
+            to="/bang-gia" 
             className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
-              isActive("/pricing") ? "text-blue-700 font-bold active-link" : ""
+              isActive("/bang-gia") ? "text-blue-700 font-bold active-link" : ""
             }`}
           >
             Bảng giá
@@ -50,25 +50,25 @@ export default function Header() {
             Hỗ trợ
           </Link>
           <Link 
-            to="/news"
+            to="/tin-tuc"
             className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
-              isActive("/news") ? "text-blue-700 font-bold active-link" : ""
+              isActive("/tin-tuc") ? "text-blue-700 font-bold active-link" : ""
             }`}
           >
             Tin tức
           </Link>
           <Link 
-            to="/lookup" 
+            to="/tra-cuu" 
             className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
-              isActive("/lookup") ? "text-blue-700 font-bold active-link" : ""
+              isActive("/tra-cuu") ? "text-blue-700 font-bold active-link" : ""
             }`}
           >
             Tra cứu
           </Link>
           <Link 
-            to="/register" 
+            to="/dang-ly-dich-vu" 
             className={`text-sm font-medium text-blue-500 hover:text-blue-700 transition-colors duration-200 ${
-              isActive("/register") ? "text-blue-700 font-bold active-link" : ""
+              isActive("/dang-ly-dich-vu") ? "text-blue-700 font-bold active-link" : ""
             }`}
           >
             Đăng ký dịch vụ
@@ -77,7 +77,7 @@ export default function Header() {
 
         {/* CTA Buttons */}
         <div className="flex items-center space-x-3">
-          <Link to="/login">
+          <Link to="/dang-nhap">
             <Button 
               variant="ghost" 
               className="text-sm font-medium text-blue-600 hover:bg-blue-100 hover:text-blue-700 transition-colors"
@@ -85,7 +85,7 @@ export default function Header() {
               Đăng nhập
             </Button>
           </Link>
-          <Link to="/sign-up">
+          <Link to="/dang-ky">
             <Button 
               className="text-sm font-medium bg-blue-600 hover:bg-blue-700 text-white transition-colors"
             >
