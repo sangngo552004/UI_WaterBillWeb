@@ -12,11 +12,16 @@ const App = () => {
     <AuthProvider>
         <Router>
           <Routes>
-            <Route path="/*" element={<PublicRoutes />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/user/*" element={<UserRoutes />} />
-            </Route>
+            <Route path="/*" element={<PublicRoutes  />} />
+            <Route path="/user/*" element={<UserRoutes />} />
+            {/* <Route element={<ProtectedRoutes  requiredRole="USER"  />}>
+            <Route path="/user/*" element={<UserRoutes />} />
+            </Route> */}
             <Route path="/admin/*" element={<AdminRoutes />} />
+            {/* <Route element={<ProtectedRoutes  requiredRole="ADMIN" isAdminRoute={true} />}>
+            <Route path="/admin/*" element={<AdminRoutes />} />
+            </Route> */}
+          
           </Routes>
         </Router>
     </AuthProvider>

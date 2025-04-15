@@ -11,6 +11,11 @@ import NewsListPage from "../pages/public/NewsListPage";
 import NewsDetailPage from "../pages/public/NewsDetailPage";
 import OnlinePaymentPage from "../pages/public/OnlinePaymentPage";
 import SupportPaymentPage from "../pages/public/SupportPaymentPage";
+import ForgetPasswordPage from '../pages/public/ForgetPassword';
+import OtpConfirmPage from '../pages/public/OtpConfirmPage';
+import ResetPasswordPage from '../pages/public/ResetPasswordPage';
+import SuccessPage from '../pages/public/SuccessPage';
+
 
 
 const PublicRoutes = () => (
@@ -22,6 +27,12 @@ const PublicRoutes = () => (
         <Route path = "tin-tuc">
             <Route path="" element={<NewsListPage  />} />
             <Route path=":id" element={<NewsDetailPage />} />
+        </Route>
+          <Route path="quen-mat-khau" >
+          <Route path="" element={<ForgetPasswordPage  />} />
+          <Route path="xac-nhan-otp" element={<OtpConfirmPage />} />
+          <Route path="dat-lai-mat-khau" element={<ResetPasswordPage />} />
+          <Route path="thanh-cong" element={<SuccessPage />} />
         </Route>
         <Route path="bang-gia" element = {<PricingPage />} />
         <Route path="dang-ky-dich-vu" element={<RegisterPage />} />

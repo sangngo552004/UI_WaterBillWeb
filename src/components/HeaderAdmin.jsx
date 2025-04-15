@@ -9,10 +9,15 @@ import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { useAuth } from "../contexts/AuthContext";
 
 
 const HeaderAdmin = () => {
-
+  const { logout } = useAuth();
+  const handleLogout = () => {
+    console.log("mmmm")
+    logout();
+  };
     return (
       <header className="border-b">
       <div className="flex items-center justify-between p-4">
@@ -98,7 +103,8 @@ const HeaderAdmin = () => {
               </DropdownMenuItem>
               <DropdownMenuItem>Cài đặt</DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Đăng xuất</DropdownMenuItem>
+              <DropdownMenuItem 
+                  onClick={handleLogout}>Đăng xuất</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

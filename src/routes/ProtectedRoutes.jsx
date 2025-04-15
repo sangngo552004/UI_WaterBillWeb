@@ -4,8 +4,8 @@ import { useAuth } from '../contexts/AuthContext';
 
 const ProtectedRoute =  (requiredRole , isAdminRoute = false) => {
   const { isAuthenticated, hasRole } = useAuth();
-
-  if (!isAuthenticated || (requiredRole && !hasRole(requiredRole))) {
+  console.log(hasRole(requiredRole))
+  if (!isAuthenticated || !hasRole(requiredRole)) {
     return <Navigate to={isAdminRoute ? "/admin/dang-nhap" : "/dang-nhap"} replace />;
   }
 

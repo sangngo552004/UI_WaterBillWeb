@@ -1,21 +1,7 @@
 // src/context/AuthContext.jsx
 import React, { createContext, useState, useContext, useEffect } from "react";
 
-// --- Giả lập dữ liệu người dùng ---
-const mockUsers = {
-  "user@example.com": {
-    id: 1,
-    name: "Người Dùng A",
-    email: "user@example.com",
-    password: "password123",
-  },
-  "sang@example.com": {
-    id: 2,
-    name: "Sang Nguyễn",
-    email: "sang@example.com",
-    password: "123",
-  },
-};
+
 
 const AuthContext = createContext(null);
 
@@ -29,6 +15,8 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     const storedUser = localStorage.getItem("user");
+    console.log(storedToken)
+    console.log(storedUser)
     if (storedToken && storedUser) {
       try {
         setToken(storedToken);
@@ -45,7 +33,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password , role) => {
     try {
-      const response = await fetch("http://localhost:8080/auth/token", {
+      const response = await fetch("http://localhost:8081/api /auth/token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -80,8 +68,6 @@ export const AuthProvider = ({ children }) => {
   };
         
 
-      
-
   const logout = () => {
     setUser(null);
     setToken(null);
@@ -91,7 +77,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const hasRole = (role) => {
-    return user?.roles?.includes(role) || false;
+    return user && user.roles && user.roles.includes(role);
   };
 
   const value = {
